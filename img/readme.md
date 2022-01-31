@@ -1,0 +1,1 @@
+/* Images by James DeWalt, 2022 */
