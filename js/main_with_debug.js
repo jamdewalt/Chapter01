@@ -123,8 +123,9 @@ function addEvents(){
 
 		alert('Hey, you clicked me!');
 	};
-
+	//this adds the event for clicking on a table element
+	table.addEventListener("click", clickme)
 };
-
+	
 //this calls the initialize function 
 document.addEventListener('DOMContentLoaded',initialize)
