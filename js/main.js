@@ -1,7 +1,8 @@
 /* Scripts by James DeWalt, 2022 */
 //this calls the cities function when the script loads
 function initialize(){
-	cities();
+	cities(); 
+
 };
 //this function is used to create a table with some cities and their population
 function cities(){
@@ -125,7 +126,32 @@ function addEvents(){
 	};
 	//this adds the event for clicking on a table element
 	table.addEventListener("click", clickme)
+
 };
-	
-//this calls the initialize function 
+
+function debugAjax(){
+
+	var myData; // variable to hold data
+	console.log(myData) //undefined console outside the callback
+	fetch("data/megacities.geojson") //basic fetch
+		.then(function(response){
+			return response.json(); // this converts data to usable form
+		})
+		.then(callback) // retrieves data to a callback
+		myData = response;
+		console.log(myData); // console log executed within the callback
+};
+
+//this defines the callback function
+function callback(response){
+	myData = response
+	document.querySelector("#mydiv").insertAdjacentHTML('beforeend', "GeoJSON data: "  + JSON.stringify(response)); // stringify the response and the displays "GeoJSON data: 
+};
+
+
+
+
+
+//this calls the initialize and debug functions
 document.addEventListener('DOMContentLoaded',initialize)
+document.addEventListener('DOMContentLoaded',debugAjax)
